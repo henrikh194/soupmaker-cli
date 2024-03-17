@@ -12,8 +12,8 @@ bool gamerunning = true;
 int command;
 
 void acrecalc(){
-		carrots = carrots + acres * 2;
-		onions = onions + acres * 3;
+	carrots = carrots + acres * 2;
+	onions = onions + acres * 3;
 }
 
 int main(){
@@ -26,8 +26,8 @@ int main(){
 	while (gamerunning == true){
 		
 		if (money > 200){
-		printf("OH NO. The IRS took all your money because you apparently had too much.");
-		money = 0;
+			printf("OH NO. The IRS took all your money because you apparently had too much.");
+			money = 0;
 		}
 		
 		printf("\nYour Money %i \nYour Acres %i \nYour Carrots %i \nYour Onions %i \nStored Meals %i \nSold Meals %i \n",money,acres,carrots,onions,meals,soldmeals);
@@ -110,7 +110,6 @@ int main(){
 		}
 	}
 	return 0;
-
 }
 
 // dictionary for cases

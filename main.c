@@ -17,72 +17,66 @@ void acrecalc(){
 }
 
 int main(){
-	
 	char name[50];
 	printf("Your name:");
 	scanf("%s",name);
 	printf("Hello %s",name);
-	
 	while (gamerunning == true){
-		
 		if (money > 200){
 			printf("OH NO. The IRS took all your money because you apparently had too much.");
 			money = 0;
 		}
-		
 		printf("\nYour Money %i \nYour Acres %i \nYour Carrots %i \nYour Onions %i \nStored Meals %i \nSold Meals %i \n",money,acres,carrots,onions,meals,soldmeals);
-		
 		scanf("%i",&command);
 		switch (command){
-			
 			case 0:
-			acrecalc();
-			break;
+				acrecalc();
+				break;
 
 			case 1:
-			if (money > 0){
-				acres++;
-				money--;
-			}
-			acrecalc();
-			break;
+				if (money > 0){
+					acres++;
+					money--;
+				}
+				acrecalc();
+				break;
 
 			case 2:
-			if (carrots > 2){
-				if (onions > 3){
-					meals++;
-					carrots = carrots - 2;
-					onions = onions - 3;
+				if (carrots > 2){
+					if (onions > 3){
+						meals++;
+						carrots = carrots - 2;
+						onions = onions - 3;
+					}
 				}
-			}
-			acrecalc();
-			break;
+				acrecalc();
+				break;
 
 			case 3:
-			if (meals > 0){
-				meals--;
-				money++;
-				soldmeals ++;	
-			}
-			acrecalc();
-			break;
+				if (meals > 0){
+					meals--;
+					money++;
+					soldmeals ++;	
+				}
+				acrecalc();
+				break;
 			
 			case 4:
-			printf("Do you really wann end the game?\n");
-			scanf("%i",&command);
-			if (command == 4){
-				gamerunning = false;
-			}
-			acrecalc();
-			break;
+				printf("Do you really wann end the game?\n");
+				scanf("%i",&command);
+				if (command == 4){
+					gamerunning = false;
+				}
+				acrecalc();
+				break;
 
 			case 10:
-			if (money > 9){
-				acres = acres + 10;
-				money = money - 10;
-			}
-			acrecalc();
-			break;
+				if (money > 9){
+					acres = acres + 10;
+					money = money - 10;
+				}
+				acrecalc();
+				break;
 
 			case 20:
 				if (carrots > 20){
@@ -92,21 +86,21 @@ int main(){
 						onions = onions - 30;
 					}
 				}
-			acrecalc();
-			break;
+				acrecalc();
+				break;
 
 			case 30:
 				if (meals > 9){
 					meals = meals - 10;
 					money = money + 10;
 					soldmeals = soldmeals + 10;	
-			}
-			acrecalc();
-			break;
+				}
+				acrecalc();
+				break;
 
 			default:
-			printf("Invalid command\n Type 1 for buying an acre, 2 to make a meal, 3 to sell a meal and 4 to end the game :)");
-			break;
+				printf("Invalid command\n Type 1 for buying an acre, 2 to make a meal, 3 to sell a meal and 4 to end the game :)");
+				break;
 		}
 	}
 	return 0;

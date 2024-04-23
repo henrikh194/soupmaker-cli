@@ -1,5 +1,4 @@
-﻿//simple cli game made in an hour late at evening sorry for missing input validation for the name input
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <stdbool.h>
 
 int money = 100;
@@ -10,10 +9,14 @@ int meals = 0;
 int soldmeals = 0;
 bool gamerunning = true;
 int command;
+int turn;
 
 void acrecalc(){
 	carrots = carrots + acres * 2;
 	onions = onions + acres * 3;
+}
+void turncounter(){
+	turn++;
 }
 
 int main(){
@@ -26,11 +29,12 @@ int main(){
 			printf("OH NO. The IRS took all your money because you apparently had too much.");
 			money = 0;
 		}
-		printf("\nYour Money %i \nYour Acres %i \nYour Carrots %i \nYour Onions %i \nStored Meals %i \nSold Meals %i \n",money,acres,carrots,onions,meals,soldmeals);
+		printf("\nYour Money %i \nYour Acres %i \nYour Carrots %i \nYour Onions %i \nStored Meals %i \nSold Meals %i \nTurn %i\n",money,acres,carrots,onions,meals,soldmeals,turn);
 		scanf("%i",&command);
 		switch (command){
 			case 0:
 				acrecalc();
+				turncounter();
 				break;
 
 			case 1:
@@ -39,6 +43,7 @@ int main(){
 					money--;
 				}
 				acrecalc();
+				turncounter();
 				break;
 
 			case 2:
@@ -50,6 +55,7 @@ int main(){
 					}
 				}
 				acrecalc();
+				turncounter();
 				break;
 
 			case 3:
@@ -59,6 +65,7 @@ int main(){
 					soldmeals ++;	
 				}
 				acrecalc();
+				turncounter();
 				break;
 			
 			case 4:
@@ -68,6 +75,7 @@ int main(){
 					gamerunning = false;
 				}
 				acrecalc();
+				turncounter();
 				break;
 
 			case 10:
@@ -76,6 +84,7 @@ int main(){
 					money = money - 10;
 				}
 				acrecalc();
+				turncounter();
 				break;
 
 			case 20:
@@ -87,6 +96,7 @@ int main(){
 					}
 				}
 				acrecalc();
+				turncounter();
 				break;
 
 			case 30:
@@ -96,6 +106,7 @@ int main(){
 					soldmeals = soldmeals + 10;	
 				}
 				acrecalc();
+				turncounter();
 				break;
 
 			default:
